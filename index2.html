@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index2.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bootstrap Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS (optional) -->
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        .header-image {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Website</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <img src="header-image.jpg" class="header-image" alt="Header Image">
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">About Us</h2>
+            <p class="lead text-center">We are a company dedicated to providing the best services to our clients.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. Donec scelerisque sollicitudin enim eu venenatis.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="service1.jpg" alt="Service 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Decoration</h5>
+                            <p class="card-text">Description of Service 1.</p>
+                            <a href="https://www.wedmegood.com/vendors/pune/wedding-decorators/" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="service2.jpg" alt="Service 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Caterers</h5>
+                            <p class="card-text">Description of Service 2.</p>
+                            <a href="https://www.wedmegood.com/vendors/pune/wedding-catering" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="service3.jpg" alt="Service 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Music system and Dancers</h5>
+                            <p class="card-text">Description of Service 3.</p>
+                            <a href="https://www.justdial.com/Pune/Choreographers/nct-10098865" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+                
+                
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2024 My Website. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

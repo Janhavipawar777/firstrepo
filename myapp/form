@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integrated Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value;
+            var email = document.forms["myForm"]["email"].value;
+            if (name == "" || email == "") {
+                alert("Name and Email must be filled out");
+                return false;
+            }
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Invalid email format");
+                return false;
+            }
+            return true;
+        }
+
+        function updateContent() {
+            var newText = document.getElementById("inputText").value;
+            document.getElementById("displayText").innerText = newText;
+        }
+
+        $(document).ready(function() {
+            $("#loadData").click(function() {
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/posts/1",
+                    type: "GET",
+                    success: function(result) {
+                        $("#content").html("Title: " + result.title + "<br>Body: " + result.body);
+                    },
+                    error: function(error) {
+                        $("#content").html("An error occurred");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Integrated Example</h1>
+
+    <!-- Form with validation -->
+    <form name="myForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Real-time DOM Update -->
+    <h2>Real-time Update</h2>
+    <input type="text" id="inputText" onkeyup="updateContent()">
+    <p id="displayText">Type something above</p>
+
+    <!-- jQuery Ajax -->
+    <h2>Load Data via Ajax</h2>
+    <button id="loadData">Load Data</button>
+    <div id="content"></div>
+</body>
+</html>
