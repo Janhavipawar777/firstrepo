@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Example</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-container, .dynamic-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 5px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dynamic-content {
+            margin-top: 20px;
+        }
+
+        .dynamic-content p {
+            margin: 0;
+        }
+
+        .dynamic-content img {
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        .editable {
+            border: 1px dashed #007bff;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Student Registration Form -->
+    <div class="form-container">
+        <h1>Student Registration Form</h1>
+        <form id="registrationForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <div id="usernameError" class="error"></div>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <div id="emailError" class="error"></div>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone">
+            <div id="phoneError" class="error"></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <div id="passwordError" class="error"></div>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+            <div id="confirmPasswordError" class="error"></div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <!-- Dynamic Web Page -->
+    <div class="dynamic-container">
+        <h1>Dynamic Web Page</h1>
+        <button id="changeTextBtn">Change Text</button>
+        <button id="changeImageBtn">Change Image</button>
+        <button id="addTextBtn">Add Text Node</button>
+        <button id="deleteNodeBtn">Delete Node</button>
+
+        <div class="dynamic-content" id="content">
+            <p id="text">Original Text</p>
+            <img id="image" src="student.jpg" alt="Image">
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Image sources array
+        const images = ['student.jpg', 'student1.jpg', 'student2.jpg'];
+        const texts = ['Students', 'Books', 'Graduation','campus','events','Fun'];
+        let currentImageIndex = 0;
+        let currentTextIndex = 0;
+
+        // Registration Form Validation
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Clear previous error messages
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('phoneError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('confirmPasswordError').textContent = '';
+
+            let isValid = true;
+
+            // Username validation: only letters a-zA-Z are allowed
+            if (!/^[a-zA-Z]+$/.test(username)) {
+                document.getElementById('usernameError').textContent = 'Username should only contain letters (a-z or A-Z).';
+                isValid = false;
+            }
+
+            // Email validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                isValid = false;
+            }
+
+            // Phone number validation: must be 10 digits
+            if (!/^\d{10}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Phone number must be 10 digits.';
+                isValid = false;
+            }
+
+            // Password validation: at least 7 characters, 1 capital letter, 1 digit, and 1 special character
+            if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[&$#@]).{7,}$/.test(password)) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 7 characters long and contain at least one capital letter, one digit, and one special character (&, $, #, @).';
+                isValid = false;
+            }
+
+            // Confirm Password validation: must match password
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Registration successful!');
+            }
+
+            
+        });
+
+        // Dynamic Web Page Functionality
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            // Change text to the next in the array
+            currentTextIndex = (currentTextIndex + 1) % texts.length;
+            document.getElementById('text').innerHTML = texts[currentTextIndex];
+        });
+
+        document.getElementById('changeImageBtn').addEventListener('click', function() {
+            // Change image source to the next in the array
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.getElementById('image').src = images[currentImageIndex];
+        });
+
+        document.getElementById('addTextBtn').addEventListener('click', function() {
+            const newTextElement = document.createElement('p');
+            newTextElement.classList.add('editable');
+            newTextElement.setAttribute('contenteditable', 'true');
+            newTextElement.textContent = 'Editable text';
+            document.getElementById('content').appendChild(newTextElement);
+        });
+
+        document.getElementById('deleteNodeBtn').addEventListener('click', function() {
+            const content = document.getElementById('content');
+            if (content.lastChild) {
+                content.removeChild(content.lastChild);
+            }
+        });
+    </script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#changeTextBtn').click(function() {
+                // Change text to the next in the array using jQuery
+                const texts = ['Students', 'Books', 'Graduation','campus','events','Fun'];
+                let currentTextIndex = $('#text').data('index') || 0;
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                $('#text').html(texts[currentTextIndex]).data('index', currentTextIndex);
+            });
+
+            $('#changeImageBtn').click(function() {
+                // Change image source to the next in the array using jQuery
+                const images = ['student.jpg', 'student1.jpg', 'student2.jpg'];
+                let currentImageIndex = $('#image').data('index') || 0;
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                $('#image').attr('src', images[currentImageIndex]).data('index', currentImageIndex);
+            });
+
+            $('#addTextBtn').click(function() {
+                // Add editable text node using jQuery
+                const newTextElement = $('<p class="editable" contenteditable="true">Editable text</p>');
+                $('#content').append(newTextElement);
+            });
+
+            $('#deleteNodeBtn').click(function() {
+                // Delete the last child node using jQuery
+                $('#content').children().last().remove();
+                
+            });
+
+            // Set background-image using jQuery CSS property
+            $('body').css('background-image', 'url("background.jpg")');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

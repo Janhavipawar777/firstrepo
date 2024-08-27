@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +6,122 @@
     <title>My Resume</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Internal CSS */
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .img-fluid {
+            border: 5px solid #007bff; /* Border for profile image */
+            padding: 5px;
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+        }
+
+        .dropdown-menu {
+            min-width: 200px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            background-color: #f8f9fa;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .nav {
+            background-color: #007bff;
+        }
+
+        .nav-item a {
+            color: white;
+            margin-right: 10px;
+        }
+
+        .nav-item a:hover {
+            color: #e2e6ea;
+        }
+
+        .section {
+            display: none; /* Hide all sections initially */
+        }
+
+        .section.active {
+            display: block; /* Show the active section */
+        }
+
+        .education-section {
+            display: none; /* Hide all education sections initially */
+        }
+
+        .education-section.active {
+            display: block; /* Show the active education sections */
+        }
+    </style>
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav">
+        <a class="navbar-brand" href="#">My Resume</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="education">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="certifications">Certifications</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container mt-5">
         <div class="row">
@@ -16,75 +129,77 @@
                 <img src="profile.jpg" class="img-fluid rounded-circle" alt="Profile Picture">
             </div>
             <div class="col-md-8">
-                <h1>Your Name</h1>
-                <p class="lead">Your Professional Title</p>
-                <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+                <h1>Janhavi Pawar</h1>
+                <p class="lead">Btech Student</p>
+                <p>Email: <a href="mailto:Janhavippawar777@gmail.com">janhavippawar777@gmail.com</a></p>
                 <p>Phone: (123) 456-7890</p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/janhavi-pawar-382093310" target="_blank">linkedin.com/in/janhavi-pawar-382093310</a></p>
             </div>
         </div>
         <hr>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Education</h2>
-                <p><strong>Degree Name</strong>, University Name (Year - Year)</p>
-                <p>Description of your degree, achievements, and activities.</p>
+        <div id="education" class="education-section">
+            <div id="current-education" class="section">
+                <h2>Current Education</h2>
+                <p><strong>Btech</strong> MIT-WPU (2024 - 2026)</p>
+                <p>Four years degree in Computer Science and Engineering</p>
+            </div>
+            <div id="previous-education" class="section">
+                <h2>Previous Education</h2>
+                <p><strong>Diploma</strong> Govt. Polytechnic Karad</p>
+                <p>Three years in Computer Science and Engineering</p>
+                <p>Passed out in 2023 with 80%</p>
             </div>
         </div>
-        <hr>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Experience</h2>
-                <p><strong>Job Title</strong>, Company Name (Year - Year)</p>
-                <ul>
-                    <li>Key responsibility or achievement 1</li>
-                    <li>Key responsibility or achievement 2</li>
-                    <li>Key responsibility or achievement 3</li>
-                </ul>
-
-                <p><strong>Another Job Title</strong>, Another Company Name (Year - Year)</p>
-                <ul>
-                    <li>Key responsibility or achievement 1</li>
-                    <li>Key responsibility or achievement 2</li>
-                    <li>Key responsibility or achievement 3</li>
-                </ul>
-            </div>
+        <div id="experience" class="section">
+            <h2>Experience</h2>
+            <ul class="list-unstyled">
+                <li>
+                    <h4>No current Experience</h4>
+                    
+                </li>
+                <!-- Add more list items as needed -->
+            </ul>
         </div>
-        <hr>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Skill 1</li>
-                    <li>Skill 2</li>
-                    <li>Skill 3</li>
-                    <li>Skill 4</li>
-                </ul>
-            </div>
+        <div id="skills" class="section">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>C++</li>
+                <li>Communication</li>
+                <li>Leadership</li>
+            </ul>
         </div>
-        <hr>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Projects</h2>
-                <p><strong>Project Title</strong> (Year)</p>
-                <p>Description of the project, technologies used, and your role.</p>
-
-                <p><strong>Another Project Title</strong> (Year)</p>
-                <p>Description of the project, technologies used, and your role.</p>
-            </div>
+        <div id="projects" class="section">
+            <h2>Projects</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Year</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Women Safety App</td>
+                        <td>2021</td>
+                        <td>App created for the safety of women which had a siren, important numbers, personal contacts, and a 3-times shake system to send alert messages.</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
         </div>
-        <hr>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Certifications</h2>
-                <p><strong>Certification Name</strong>, Issuing Organization (Year)</p>
-                <p><strong>Another Certification Name</strong>, Another Organization (Year)</p>
-            </div>
+        <div id="certifications" class="section">
+            <h2>Certifications</h2>
+            <ul class="list-unstyled">
+                <li><strong>Project competition</strong>, MIT-WPU (2024)</li>
+                <!-- Add more list items as needed -->
+            </ul>
         </div>
     </div>
 
@@ -92,108 +207,41 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to handle tab switching
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            const educationSection = document.getElementById('education');
+            const educationSections = document.querySelectorAll('#education .section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const target = this.getAttribute('data-target');
+
+                    // Show or hide sections based on the clicked tab
+                    sections.forEach(section => {
+                        if (section.id === target || (target === 'education' && section.closest('#education'))) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+
+                    // Special handling for 'education' tab to show both education sections
+                    if (target === 'education') {
+                        educationSection.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
 
 
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Resume</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="profile.jpg" class="img-fluid rounded-circle" alt="Profile Picture">
-            </div>
-            <div class="col-md-8">
-                <h1>Your Name</h1>
-                <p class="lead">Your Professional Title</p>
-                <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-                <p>Phone: (123) 456-7890</p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Education</h2>
-                <p><strong>Degree Name</strong>, University Name (Year - Year)</p>
-                <p>Description of your degree, achievements, and activities.</p>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Experience</h2>
-                <p><strong>Job Title</strong>, Company Name (Year - Year)</p>
-                <ul>
-                    <li>Key responsibility or achievement 1</li>
-                    <li>Key responsibility or achievement 2</li>
-                    <li>Key responsibility or achievement 3</li>
-                </ul>
-
-                <p><strong>Another Job Title</strong>, Another Company Name (Year - Year)</p>
-                <ul>
-                    <li>Key responsibility or achievement 1</li>
-                    <li>Key responsibility or achievement 2</li>
-                    <li>Key responsibility or achievement 3</li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Skill 1</li>
-                    <li>Skill 2</li>
-                    <li>Skill 3</li>
-                    <li>Skill 4</li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Projects</h2>
-                <p><strong>Project Title</strong> (Year)</p>
-                <p>Description of the project, technologies used, and your role.</p>
-
-                <p><strong>Another Project Title</strong> (Year)</p>
-                <p>Description of the project, technologies used, and your role.</p>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Certifications</h2>
-                <p><strong>Certification Name</strong>, Issuing Organization (Year)</p>
-                <p><strong>Another Certification Name</strong>, Another Organization (Year)</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
 
 
 
->>>>>>> 868e38a54f04e94d191ae57936801ceeae0622ba
